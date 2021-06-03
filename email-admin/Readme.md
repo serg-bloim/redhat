@@ -2,35 +2,37 @@ This tutorial shows how to setup a Google Apps Script that allows to monitor a g
 ## Use case 1. Register a new login.
 To register a new login it needs to send an email from unregistered gmail account to the admin account with subject `create-a2-login`. If you leave body empty, it will generate a random password for you. Otherwise it will use email body to generate a password(not all charactes are allowed for the password).
 Protocol Example:
-
+```
 FROM: abc@gmail.com
 TO: a2admin@gmail.com
 Subject: create-a2-login
 Body: Hello, can you please craete a login for me?
-
+```
+```
 FROM: a2admin@gmail.com
 TO: abc@gmail.com
 Subject: RE: create-a2-login
 Body: Your login has been created.
 login:"abc" (first 15 letters and digits of your email account),
 password: "hellocanyo"
-
+```
 ## Use case 2. Reset the password
 If you forgot your login/password, you can send an email with subject `reset-a2-password`. It will reply you with your login and a new password. If you leave body empty, it will generate a random password for you. Otherwise it will use email body to generate a password(not all charactes are allowed for the password).
 Protocol Example:
-
+```
 FROM: abc@gmail.com
 TO: a2admin@gmail.com
 Subject: reset-a2-password
 Body: Hello, can you please craete a login for me?
-
+```
+```
 FROM: a2admin@gmail.com
 TO: abc@gmail.com
 Subject: RE: create-a2-login
 Body: Your password has been reset.
 login:"abc",
 password: "hellocanyo"
-
+```
 # How to setup this email-based admin controller
 ## Prerequisites
 It needs:
